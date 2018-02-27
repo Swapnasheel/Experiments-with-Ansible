@@ -1,0 +1,12 @@
+---
+- hosts: database
+  become: True
+  become_user: root
+  become_method: sudo
+  gather_facts: no
+  tasks:
+    - name: install mysql-server
+      apt:
+        name: mysql-server 
+        state: present 
+        update_cache: yes

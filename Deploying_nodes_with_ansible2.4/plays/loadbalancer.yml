@@ -1,0 +1,14 @@
+---
+- hosts: loadbalancer
+  become: true
+  tasks:
+   - name: Install nginx on the loadbalancer group nodes
+     apt: name=nginx state=present update_cache=yes
+
+   - name: ensure that the service has started, like the service status for the service
+     service:
+       name: nginx
+       state: started
+       enabled: yes
+
+

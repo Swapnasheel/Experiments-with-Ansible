@@ -1,0 +1,14 @@
+---
+- hosts: control
+  become: true
+
+  tasks:
+    - name: install apps in this machine
+      apt: 
+        name: {{items}}
+        state: present
+        update_cache: yes
+      with_items:
+        - curl
+      
+
