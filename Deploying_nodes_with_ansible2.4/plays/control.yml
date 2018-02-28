@@ -5,10 +5,11 @@
   tasks:
     - name: install apps in this machine
       apt: 
-        name: {{items}}
+        name: '{{item}}'
         state: present
         update_cache: yes
       with_items:
         - curl
+        - elinks
       
 
