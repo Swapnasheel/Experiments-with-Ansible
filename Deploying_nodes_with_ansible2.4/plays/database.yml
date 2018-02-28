@@ -1,8 +1,7 @@
 ---
 - hosts: database
-  become: True
-  become_user: root
-  become_method: sudo
+  become: true
+  #connection: ssh
   gather_facts: no
   tasks:
     - name: install mysql-server
@@ -10,3 +9,6 @@
         name: mysql-server 
         state: present 
         update_cache: yes
+
+    - name: ensure service started
+      service: name=mysql state=started enabled=yes
